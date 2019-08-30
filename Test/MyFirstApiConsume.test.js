@@ -21,9 +21,7 @@ describe('First Api Tests', () => {
       };
     
       const response = await agent.get('https://httpbin.org/get').query(query);
-    
-      expect(response.status).to.equal(statusCode.OK);
-      expect(response.body.args).to.eql(query);
+       expect(response.body.args).to.eql(query);
     });
 
     it('Consume DELETE Service ', async () => {
@@ -56,7 +54,7 @@ describe('First Api Tests', () => {
         city: 'New York'
       };
       
-      const response = await agent.patch('https://httpbin.org/patch').query(query);
+      const response = await agent.patch('https://httpbin.org/patch').send(query);
       
       expect(response.status).to.equal(statusCode.OK);
       expect(response.body.json).to.eql(query);
@@ -71,7 +69,7 @@ describe('First Api Tests', () => {
         city: 'New York'
       };
       
-      const response = await agent.put('https://httpbin.org/put').query;
+      const response = await agent.put('https://httpbin.org/put').send(query);
     
       expect(response.status).to.equal(statusCode.OK);
      
@@ -82,5 +80,6 @@ describe('First Api Tests', () => {
 
 
 });
+
 
 
