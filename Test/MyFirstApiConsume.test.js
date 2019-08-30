@@ -59,6 +59,7 @@ describe('First Api Tests', () => {
       const response = await agent.patch('https://httpbin.org/patch').query(query);
       
       expect(response.status).to.equal(statusCode.OK);
+      expect(response.body.json).to.eql(query);
       
     });
 
@@ -73,7 +74,8 @@ describe('First Api Tests', () => {
       const response = await agent.put('https://httpbin.org/put').query;
     
       expect(response.status).to.equal(statusCode.OK);
-      expect(response.body).to.have.property('origin');
+     
+      expect(response.body.json).to.eql(query);
 
       
     });
